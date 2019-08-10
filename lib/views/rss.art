@@ -5,14 +5,14 @@
 <rss version="2.0">
 {{ /if }}
     <channel>
-        <title><![CDATA[{{@ title || 'RSSHub' }}]]></title>
-        <link>{{ link || 'https://github.com/DIYgod/RSSHub' }}</link>
-        <description><![CDATA[{{@ description || title }} - Made with love by RSSHub(https://github.com/DIYgod/RSSHub)]]></description>
-        <generator>RSSHub</generator>
-        <webMaster>i@diygod.me</webMaster>
+        <title><![CDATA[{{@ title }}]]></title>
+        <link>{{ link }}</link>
+        <description><![CDATA[{{@ description || title }}]]></description>
+        <generator>RSS</generator>
+        <webMaster>fusnews</webMaster>
         {{ if itunes_author }}<itunes:author>{{ itunes_author}}</itunes:author>{{ /if }}
         {{ if itunes_category }}<itunes:category text="{{ itunes_category }}"/>{{ /if }}
-        <language>{{ language || 'zh-cn' }}</language>
+        <language>{{ language || 'en' }}</language>
         {{ if image }}
         <image>
             <url>{{ image }}</url>
@@ -40,6 +40,7 @@
                 <category>{{ $c }}</category>
                 {{ /each }}
             {{ /if }}
+            <content><![CDATA[{{@ $value.content }}]]></content>
         </item>
         {{ /each }}
     </channel>
